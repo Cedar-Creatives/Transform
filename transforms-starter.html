@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Transforms Practice – Starter</title>
+
+  <!--
+  ===========================================================
+   CSS TRANSFORMS PRACTICE PROJECT  (Starter)
+  ===========================================================
+
+   GOAL
+   Make every box below behave as described in its task.
+   You only need to write CSS. Do NOT change the HTML.
+
+   HOW TO WORK
+   1. Save this file and open it in your browser (and VS Code).
+   2. Scroll to the "YOUR WORK" section inside <style>.
+   3. Find each TODO and write the CSS it asks for.
+   4. Save, refresh the browser, and check the result.
+   5. Do not open the solution file until you have tried every task.
+
+   TASKS (2D transforms)
+   1. .move   -> shift the box 100px right and 20px down (translate)
+   2. .spin   -> rotate the box 45 degrees (rotate)
+   3. .grow   -> on hover, make the box 1.5 times bigger (scale)
+   4. .lean   -> tilt the box 20 degrees along the X axis (skewX)
+   5. .pivot  -> rotate 30 degrees around its TOP LEFT corner
+                 (transform-origin)
+   6. .combo  -> on hover, do translateY(-20px), rotate(15deg)
+                 and scale(1.2) together in ONE transform
+
+   TASK 7 (3D transforms): flip card
+   - The card must flip when you hover over it.
+   - Follow the TODOs for .scene, .card, .face and .back.
+   - Hints: perspective, transform-style, rotateY, backface-visibility
+
+   BONUS
+   - Change the transition time from 0.4s to 1s and see the difference.
+   - Make the flip card flip on the X axis instead (rotateX).
+
+   Reference: https://www.w3schools.com/css/css3_2dtransforms.asp
+              https://www.w3schools.com/css/css3_3dtransforms.asp
+  -->
+
+  <style>
+    /* ---------- BASE STYLES (do not edit) ---------- */
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: system-ui, Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1a202c;
+    }
+
+    h1 { margin: 0 0 4px; font-size: 1.5rem; }
+    .intro { margin: 0 0 20px; color: #4a5568; }
+
+    .task {
+      background: #fff;
+      border: 1px solid #d9dee5;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .task h2 { margin: 0 0 4px; font-size: 1.05rem; }
+    .task p  { margin: 0 0 10px; font-size: 0.9rem; color: #4a5568; }
+
+    .stage {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8edf3;
+      border-radius: 6px;
+    }
+
+    .box {
+      width: 80px;
+      height: 80px;
+      display: grid;
+      place-items: center;
+      background: #2f855a;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: transform 0.4s;
+    }
+
+    /* 3D card base layout */
+    .stage-3d { height: 250px; }
+    .scene { width: 150px; height: 200px; }
+    .card  { width: 100%; height: 100%; position: relative; transition: transform 0.8s; }
+    .face  {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+    .front { background: #2b6cb0; }
+    .back  { background: #c05621; }
+
+    /* ---------- YOUR WORK ---------- */
+
+    /* Task 1: translate 100px right and 20px down */
+    .move {
+      /* TODO */
+    transform: translate(100px, 20px);
+
+    }
+
+    /* Task 2: rotate 45 degrees */
+    .spin {
+      /* TODO */
+    transform: rotate(45deg);
+    }
+
+    /* Task 3: scale to 1.5 on hover */
+    .grow:hover {
+      /* TODO */
+    transform: scale(1.5);
+    }
+
+    /* Task 4: skew 20 degrees on the X axis */
+    .lean {
+      /* TODO */
+    transform: skewX(20deg);
+    }
+
+    /* Task 5: rotate 30 degrees from the top left corner */
+    .pivot {
+      /* TODO: transform-origin */
+      transform-origin: top left;
+      /* TODO: transform */
+      transform-origin: top left;
+      transform: rotate(30deg);
+    }
+
+    /* Task 6: translateY(-20px) + rotate(15deg) + scale(1.2) on hover */
+    .combo:hover {
+      /* TODO */
+    transform: translateY(-20px) rotate(15deg) scale(1.2);
+    }
+
+    /* Task 7: 3D flip card */
+    .scene {
+      /* TODO: give the scene a perspective of 600px */
+      perspective: 600px;
+    }
+
+    .card {
+      /* TODO: keep children in 3D space (transform-style) */
+      transform-style: preserve-3d;
+    }
+
+    .scene:hover .card {
+      /* TODO: flip the card 180 degrees around the Y axis */
+      transform: rotateY(180deg);
+    }
+
+    .face {
+      /* TODO: hide the face when it is turned away (backface-visibility) */
+    }
+
+    .back {
+      /* TODO: pre-rotate the back face 180 degrees around the Y axis */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Transforms Practice</h1>
+  <p class="intro">Complete the TODOs in the CSS to make each box work.</p>
+
+  <div class="task">
+    <h2>Task 1: Translate</h2>
+    <p>Move the box 100px right and 20px down.</p>
+    <div class="stage"><div class="box move">1</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 2: Rotate</h2>
+    <p>Rotate the box 45 degrees.</p>
+    <div class="stage"><div class="box spin">2</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 3: Scale</h2>
+    <p>Hover over the box. It should grow to 1.5 times its size.</p>
+    <div class="stage"><div class="box grow">3</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 4: Skew</h2>
+    <p>Tilt the box 20 degrees along the X axis.</p>
+    <div class="stage"><div class="box lean">4</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 5: Transform origin</h2>
+    <p>Rotate the box 30 degrees around its top left corner.</p>
+    <div class="stage"><div class="box pivot">5</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 6: Combine transforms</h2>
+    <p>Hover over the box. It should lift, rotate and grow at the same time.</p>
+    <div class="stage"><div class="box combo">6</div></div>
+  </div>
+
+  <div class="task">
+    <h2>Task 7: 3D flip card</h2>
+    <p>Hover over the card. It should flip to show the back.</p>
+    <div class="stage stage-3d">
+      <div class="scene">
+        <div class="card">
+          <div class="face front">Front<br>(hover me)</div>
+          <div class="face back">Back<br>You did it!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
